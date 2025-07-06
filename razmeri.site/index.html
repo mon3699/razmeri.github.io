@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAZMERI - Luxury Gothic Fashion</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <img src="logo.png.jpeg" alt="RAZMERI Logo" class="logo" />
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+  <div class="nav-left">
+    <a href="#"><i class="fa-solid fa-house"></i><span></span></a>
+    <a href="#"><i class="fa-solid fa-headset"></i><span></span></a>
+  </div>
+
+  <div class="nav-center">
+    <a href="#">Men</a>
+    <a href="#">Women</a>
+    <a href="#">kids</a>
+    <a href="#">New Arrivals</a>
+    
+  </div>
+
+  <div class="nav-right cart-container">
+    <a href="search"><i class="fa-solid fa-magnifying-glass"></i></i></a>
+    <a href="auth.html"><i class="fa-solid fa-user"></i></a> 
+    <!-- Login icon -->
+    <button id="cart-btn"><i class="fa-solid fa-bag-shopping"></i><span id="cart-count">0</span></button>
+  </div>
+</nav>
+
+  <!-- Hero Banner -->
+  <div class="hero">
+    <div class="hero-text"></div>
+  </div>
+
+  <!-- Product Section -->
+  <section class="products">
+    <div class="product-card">
+      <a href="product.html">
+      <img src="zach002.jpg" alt="T-shirt" />
+      </a>
+      <div class="info">
+        <h3>Classic T-Shirt</h3>
+        <p>Unisex, 100% Cotton</p>
+        <div class="price">₹999</div>
+        <button class="add-to-cart" data-name="Classic T-Shirt" data-price="999">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <a href="product.html">
+      <img src="zach003.jpg" alt="Hoodie" />
+      </a>
+      <div class="info">
+        <h3>Premium Hoodie</h3>
+        <p>Warm & Stylish</p>
+        <div class="price">₹1799</div>
+        <button class="add-to-cart" data-name="Premium Hoodie" data-price="1799">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <a href="product.html">
+      <img src="zach004.jpg" alt="Jacket" />
+      </a>
+      <div class="info">
+        <h3>Urban Jacket</h3>
+        <p>Water Resistant</p>
+        <div class="price">₹2499</div>
+        <button class="add-to-cart" data-name="Urban Jacket" data-price="2499">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Drawer -->
+  <div id="cart-drawer" class="hidden">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button id="close-cart">x</button>
+    </div>
+    <ul id="cart-items"></ul>
+    <div class="cart-footer">
+      <p><strong>Subtotal:</strong> ₹<span id="cart-subtotal">0</span></p>
+      <p><strong>Shipping:</strong> ₹49</p>
+      <p><strong>Total:</strong> ₹<span id="cart-total">0</span></p>
+      <div class="cart-actions">
+        <button id="checkout-btn">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 RAZMERI Clothing. All rights reserved.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

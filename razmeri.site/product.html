@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RAZMERI - Product Detail</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .product-detail-container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 60px 10%;
+    }
+
+    @media(min-width: 768px) {
+      .product-detail-container {
+        flex-direction: row;
+      }
+    }
+
+    .product-image {
+      flex: 1;
+      max-width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    .product-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .product-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .product-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      color: gold;
+    }
+
+    .product-description {
+      color: #ccc;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .product-price {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: gold;
+    }
+
+    .product-sizes {
+      display: flex;
+      gap: 10px;
+    }
+
+    .product-sizes button {
+      padding: 8px 14px;
+      background: #1a1a1a;
+      border: 1px solid gold;
+      color: gold;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .product-sizes button:hover {
+      background: gold;
+      color: black;
+    }
+
+    .add-to-cart {
+      background-color: gold;
+      color: black;
+      padding: 12px 18px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 8px;
+      transition: background 0.3s;
+      width: fit-content;
+    }
+
+    .add-to-cart:hover {
+      background-color: white;
+    }
+
+    .back-link {
+      margin-top: 30px;
+      display: inline-block;
+      color: gold;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png.jpeg" alt="RAZMERI Logo" class="logo" />
+  </header>
+
+  <section class="product-detail-container">
+    <div class="product-image">
+      <img src="zach002.jpg" alt="Classic T-Shirt">
+    </div>
+    <div class="product-info">
+      <h1 class="product-title">Classic T-Shirt</h1>
+      <p class="product-description">
+        Elevate your streetwear game with our limited edition Classic T-Shirt. Made from premium vegan leather with antique gold detailing, this piece merges timeless design with bold, modern luxury.
+      </p>
+      <div class="product-price">₹999</div>
+      <div class="product-sizes">
+        <button>S</button>
+        <button>M</button>
+        <button>L</button>
+        <button>XL</button>
+      </div>
+      <button class="add-to-cart" onclick="addToCart('Urban Gothic Jacket', 2999)">Add to Cart</button>
+      <a href="index.html" class="back-link">← Back to Shop</a>
+    </div>
+  </section>
+
+  <section class="product-detail-container">
+    <div class="product-image">
+      <img src="zach003.jpg" alt="Premium Hoodie">
+    </div>
+    <div class="product-info">
+      <h1 class="product-title">Premium Hoodie</h1>
+      <p class="product-description">
+        Elevate your streetwear game with our limited edition Premium Hoodie. Made from premium vegan leather with antique gold detailing, this piece merges timeless design with bold, modern luxury.
+      </p>
+      <div class="product-price">₹1799</div>
+      <div class="product-sizes">
+        <button>S</button>
+        <button>M</button>
+        <button>L</button>
+        <button>XL</button>
+      </div>
+      <button class="add-to-cart" onclick="addToCart('Urban Gothic Jacket', 2999)">Add to Cart</button>
+      <a href="index.html" class="back-link">← Back to Shop</a>
+    </div>
+  </section>
+
+  <section class="product-detail-container">
+    <div class="product-image">
+      <img src="zach004.jpg" alt="Premium Jacket">
+    </div>
+    <div class="product-info">
+      <h1 class="product-title">Urban Gothic Jacket</h1>
+      <p class="product-description">
+        Elevate your streetwear game with our limited edition Urban Gothic Jacket. Made from premium vegan leather with antique gold detailing, this piece merges timeless design with bold, modern luxury.
+      </p>
+      <div class="product-price">₹2,999</div>
+      <div class="product-sizes">
+        <button>S</button>
+        <button>M</button>
+        <button>L</button>
+        <button>XL</button>
+      </div>
+      <button class="add-to-cart" onclick="addToCart('Urban Gothic Jacket', 2999)">Add to Cart</button>
+      <a href="index.html" class="back-link">← Back to Shop</a>
+    </div>
+  </section>
+
+
+
+  <script>
+    function addToCart(name, price) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name, price });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("Added to cart!");
+    }
+  </script>
+
+</body>
+</html>

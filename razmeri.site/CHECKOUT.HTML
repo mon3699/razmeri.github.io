@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RAZMERI - Checkout</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;500&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #111;
+      color: #eee;
+    }
+
+    header {
+      background-color: #000;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .logo {
+      max-width: 160px;
+      height: auto;
+    }
+
+    .checkout-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      color: gold;
+      margin-bottom: 20px;
+    }
+
+    .order-summary {
+      margin-bottom: 30px;
+    }
+
+    .order-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #333;
+    }
+
+    .totals {
+      margin-top: 20px;
+      border-top: 1px solid #444;
+      padding-top: 10px;
+    }
+
+    .totals div {
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background-color: gold;
+      color: black;
+      border: none;
+      padding: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .checkout-btn:hover {
+      background-color: white;
+      color: black;
+    }
+
+    @media (max-width: 600px) {
+      .checkout-container {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      .order-item, .totals div {
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
+      }
+
+      .checkout-btn {
+        font-size: 14px;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png.jpeg" alt="RAZMERI Logo" class="logo" />
+  </header>
+
+  <div class="checkout-container">
+    <h2>Checkout</h2>
+    <div class="order-summary" id="order-summary">
+      <!-- JavaScript will insert items here -->
+    </div>
+
+    <div class="totals">
+      <div><span>Subtotal</span><span id="subtotal">₹0</span></div>
+      <div><span>Shipping</span><span>₹49</span></div>
+      <div><strong>Total</strong><strong id="total">₹0</strong></div>
+    </div>
+
+    <button class="checkout-btn" onclick="placeOrder()">Place Order</button>
+  </div>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const summaryContainer = document.getElementById("order-summary");
+    const subtotalEl = document.getElementById("subtotal");
+    const totalEl = document.getElementById("total");
+    const stateGSTEl = document.getElementById("state-gst");
+    const centralGSTEl = document.getElementById("central-gst");
+
+    let subtotal = 0;
+    summaryContainer.innerHTML = "";
+
+    cart.forEach(item => {
+      const itemRow = document.createElement("div");
+      itemRow.className = "order-item";
+      itemRow.innerHTML = `
+        <span>${item.name} × ${item.quantity || 1}</span>
+        <span>₹${item.price * (item.quantity || 1)}</span>
+      `;
+      summaryContainer.appendChild(itemRow);
+      subtotal += item.price * (item.quantity || 1);
+    });
+
+    const shipping = 49;
+    const total = subtotal + shipping + stateGST + centralGST;
+
+    subtotalEl.textContent = `₹${subtotal}`;
+    stateGSTEl.textContent = `₹${stateGST}`;
+    centralGSTEl.textContent = `₹${centralGST}`;
+    totalEl.textContent = `₹${total}`;
+
+    function placeOrder() {
+      alert("🧾 Thank you for your order! Your items will be shipped soon.");
+      localStorage.removeItem("cart");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
